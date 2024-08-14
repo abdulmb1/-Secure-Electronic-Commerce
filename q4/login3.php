@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="stylesq3.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <div class="login-container">
-        <form id="loginForm" action="send_otp.php" method="post">
+        <form id="loginForm" action="process_login.php" method="post">
             <h1>Login</h1>
 
             <div class="input_box">

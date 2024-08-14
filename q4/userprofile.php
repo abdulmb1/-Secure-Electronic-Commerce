@@ -1,3 +1,3 @@
 <?php
-$dummy_user = array('username' => 'cool', 'password' => 'pwd', 'secret' => 'F3OLQ2QDTEWOZID5');
+$dummy_user = array('username' => '123@123.com', 'password' => 'pwd', 'secret' => 'F3OLQ2QDTEWOZID5');
 ?>
