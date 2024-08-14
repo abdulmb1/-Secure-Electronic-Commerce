@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="styles3.css">
+    <link rel="stylesheet" href="stylesq3.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -27,9 +27,10 @@
             <p id="error-message"></p>
         </form>
     </div>
-    <script src="script3.js"></script>
+    <script src="scriptq3.js"></script>
 </body>
 </html>
+
 
 
 
