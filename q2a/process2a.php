@@ -10,9 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (intval($responseKeys["success"]) !== 1) {
         echo 'Please complete the CAPTCHA';
     } else {
-        // Proceed with form processing
-        // Your code to handle the form submission, e.g., save user data to the database
         echo 'CAPTCHA was completed successfully!';
+        // Proceed with your form processing, e.g., save user data to the database
     }
 }
 ?>
+
