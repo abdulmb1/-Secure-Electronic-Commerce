@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo 'Please complete the CAPTCHA';
     } else {
         echo 'CAPTCHA was completed successfully!';
-        // Proceed with your form processing, e.g., save user data to the database
     }
 }
 ?>

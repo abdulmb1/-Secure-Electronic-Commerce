@@ -5,11 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     togglePasswordIcons.forEach((icon, index) => {
         icon.addEventListener('click', () => {
-            // Toggle the type attribute using a ternary operator
             const type = passwordInputs[index].getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInputs[index].setAttribute('type', type);
-
-            // Toggle the eye/eye-slash icon
             icon.classList.toggle('uil-eye-slash');
             icon.classList.toggle('uil-eye');
         });
@@ -20,31 +17,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorMessage = document.getElementById('error-message');
 
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the form from submitting the traditional way
+        event.preventDefault();
 
-        const formData = new FormData(form);
+        // Generate the reCAPTCHA token
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LdSniYqAAAAANxaaT5ChelCVhtMCb76aK4yulB1', {action: 'submit'}).then(function(token) {
+                document.getElementById('g-recaptcha-response').value = token;
 
-        fetch('process2b.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            if (data.includes('Please complete the CAPTCHA')) {
-                errorMessage.textContent = 'Please complete the CAPTCHA';
-                errorMessage.style.display = 'block';
-            } else {
-                // Handle success, for example, redirect or display success message
-                errorMessage.textContent = 'CAPTCHA was completed successfully!';
-                errorMessage.style.color = 'green';
-                errorMessage.style.display = 'block';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
+                // Proceed with form submission after token is generated
+                const formData = new FormData(form);
+
+                fetch('process2b.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    if (data.includes('CAPTCHA validation failed')) {
+                        errorMessage.textContent = 'CAPTCHA validation failed. Please try again.';
+                        errorMessage.style.display = 'block';
+                        errorMessage.style.color = 'red';
+                    } else {
+                        // Redirect to a success page
+                        window.location.href = 'success.php';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
         });
     });
 });
+
 
 
 

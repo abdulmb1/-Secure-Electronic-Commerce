@@ -1,18 +1,40 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $recaptchaSecret = '6Le0PyIqAAAAADVVLcmjm-lqcggiZagWGUHhm8TM';
+    $recaptchaSecret = '6LdSniYqAAAAAPpbAEhUOBmWGV6VT5ls7QLkjAyr';
     $recaptchaResponse = $_POST['g-recaptcha-response'];
 
-    // Make a request to the Google reCAPTCHA API
-    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$recaptchaSecret&response=$recaptchaResponse");
-    $responseKeys = json_decode($response, true);
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = [
+        'secret' => $recaptchaSecret,
+        'response' => $recaptchaResponse,
+        'remoteip' => $_SERVER['REMOTE_ADDR']
+    ];
 
-    if (intval($responseKeys["success"]) !== 1) {
-        echo 'Please complete the CAPTCHA';
+    $options = [
+        'http' => [
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'method'  => 'POST',
+            'content' => http_build_query($data),
+        ],
+    ];
+
+    $context  = stream_context_create($options);
+    $response = file_get_contents($url, false, $context);
+    $result = json_decode($response, true);
+
+    // Debug output
+    echo '<pre>';
+    print_r($result);
+    echo '</pre>';
+
+    if (isset($result['success']) && $result['success'] === true) {
+        if (isset($result['score']) && $result['score'] > 0.5) {
+            echo 'CAPTCHA was completed successfully!';
+        } else {
+            echo 'CAPTCHA validation failed. Please try again.';
+        }
     } else {
-        echo 'CAPTCHA was completed successfully!';
-        // Proceed with your form processing, e.g., save user data to the database
+        echo 'CAPTCHA validation failed. Please try again.';
     }
 }
 ?>
-

@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="styles2b.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdSniYqAAAAANxaaT5ChelCVhtMCb76aK4yulB1"></script>
 </head>
 <body>
     <div class="login-container">
-            <form id="registrationForm">
+        <form id="registrationForm" action="process2b.php" method="post">
             <h1> Create Account </h1>
 
             <div class="input_box">
@@ -30,7 +30,7 @@
                 <i class="uil uil-eye-slash pw_hide"></i>
             </div>
 
-            <div class="g-recaptcha" data-sitekey="6Le0PyIqAAAAAGU88ljN08CjFtZ0Vl5JvSWy-eD6"></div>
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
 
             <button type="submit">Create Account</button>
             <p id="error-message"></p>
