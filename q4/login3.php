@@ -10,28 +10,21 @@
 </head>
 <body>
     <div class="login-container">
-        <form id="loginForm">
-            <h1> Login </h1>
+        <form id="loginForm" action="send_otp.php" method="post">
+            <h1>Login</h1>
+
             <div class="input_box">
-                <input type="email" id="email" placeholder="Enter your email" required>
+                <input type="email" name="email" placeholder="Enter your email" required>
                 <i class="uil uil-envelope-alt email"></i>
             </div>
 
             <div class="input_box">
-                <input type="password" id="password" placeholder="Enter your password" required>
+                <input type="password" name="password" placeholder="Enter your password" required>
                 <i class="uil uil-lock password"></i>
-                <i class="uil uil-eye-slash pw_hide"></i>
             </div>
 
             <button type="submit">Login</button>
-            <p id="error-message"></p>
         </form>
     </div>
-    <script src="scriptq3.js"></script>
 </body>
 </html>
-
-
-
-
-
