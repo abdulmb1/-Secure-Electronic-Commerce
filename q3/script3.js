@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const togglePassword = document.querySelector('.pw_hide');
-    const passwordInput = document.querySelector('.input_box input[type="password"]');
+    const passwordInput = document.querySelector('#password');
 
     togglePassword.addEventListener('click', () => {
         // Toggle the type attribute using a ternary operator
@@ -12,5 +12,3 @@ document.addEventListener('DOMContentLoaded', () => {
         togglePassword.classList.toggle('uil-eye');
     });
 });
-
-
