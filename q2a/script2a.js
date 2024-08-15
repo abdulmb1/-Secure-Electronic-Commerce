@@ -5,11 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     togglePasswordIcons.forEach((icon, index) => {
         icon.addEventListener('click', () => {
-            // Toggle the type attribute using a ternary operator
             const type = passwordInputs[index].getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInputs[index].setAttribute('type', type);
-
-            // Toggle the eye/eye-slash icon
             icon.classList.toggle('uil-eye-slash');
             icon.classList.toggle('uil-eye');
         });
@@ -33,10 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (data.includes('Please complete the CAPTCHA')) {
                 errorMessage.textContent = 'Please complete the CAPTCHA';
                 errorMessage.style.display = 'block';
+            } else if (data.includes('CAPTCHA was completed successfully!')) {
+                // Redirect to the success page
+                window.location.href = 'success.php';
             } else {
-                // Handle success, for example, redirect or display success message
-                errorMessage.textContent = 'CAPTCHA was completed successfully!';
-                errorMessage.style.color = 'green';
+                // In case of other issues, show an error message
+                errorMessage.textContent = 'An error occurred. Please try again.';
                 errorMessage.style.display = 'block';
             }
         })
@@ -45,4 +44,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-

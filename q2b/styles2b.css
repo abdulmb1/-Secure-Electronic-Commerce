@@ -72,7 +72,9 @@ button {
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+    margin-top: 20px;
 }
+
 button:hover {
     opacity: 0.9;
 }
@@ -107,4 +109,28 @@ button:hover {
 .g-recaptcha {
     margin-top: 20px; /* Adjust the value as needed */
     margin-bottom: 20px; /* This ensures space between the captcha and the button */
+}
+
+.success-container {
+    text-align: center; /* Centers all text and inline elements, including the button */
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#backButton {
+    background-color: #4B0082;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    display: inline-block; /* Change from block to inline-block */
+    text-align: center;
+    width: 50%;
 }

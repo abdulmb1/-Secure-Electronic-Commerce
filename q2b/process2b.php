@@ -22,11 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $response = file_get_contents($url, false, $context);
     $result = json_decode($response, true);
 
-    // Debug output
-    echo '<pre>';
-    print_r($result);
-    echo '</pre>';
-
     if (isset($result['success']) && $result['success'] === true) {
         if (isset($result['score']) && $result['score'] > 0.5) {
             echo 'CAPTCHA was completed successfully!';
