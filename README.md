@@ -11,9 +11,10 @@ This document provides an overview of the E-Commerce application implemented to 
     HTML/CSS: Used to structure and style the web pages.
 
 ## Running the application
-To run the application, make sure you have an Apache server configured to run PHP code. This can be done using XAMPP, MAMP, or any other LAMP/WAMP stack. Then, on your web browser search bar, go to http://localhost/sec-a1/X/X, replacing X with any folder and login page you want to see.
+To run the application, make sure you have an Apache server configured to run PHP code. This can be done using XAMPP, MAMP, or any other LAMP/WAMP stack. Then, on your web browsers search bar, go to http://localhost/sec-a1/X/Y, replacing X with any specifided folder then Y with login page.
 
 ## How it works
+
 ### User Registration with reCAPTCHA:
     reCAPTCHA v2: During registration, the user is presented with a CAPTCHA challenge. Once the user completes the challenge their response is verified on the server side before the registration process continues.
     
