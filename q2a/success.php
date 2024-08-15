@@ -9,7 +9,7 @@
     <div class="success-container">
         <h1>reCAPTCHA v2 works!</h1>
         <p>You have successfully completed the reCAPTCHA challenge.</p>
-        <button id ="backButton" onclick="window.location.href='formcapv2.php';">Go Back to Form</button>
+        <button id ="backButton" onclick="window.location.href='form2a.php';">Go Back to Form</button>
     </div>
 </body>
 </html>
