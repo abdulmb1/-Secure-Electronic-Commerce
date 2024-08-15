@@ -3,10 +3,13 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
+// Load Composer's autoloader
 require 'vendor/autoload.php';
 
-//Create an instance; passing `true` enables exceptions
+// Load the configuration
+$config = require 'config.php';
+
+// Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,21 +25,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $_SESSION['verificationCode'] = $verificationCode;
 
-        // Send the email with the verification code using PHPMailer
-        $mail = new PHPMailer(true);
-
         try {
-            //Server settings
+            // Server settings
             $mail->isSMTP();
-            $mail->Host       = 'smtp-mail.outlook.com'; // Set your SMTP server
+            $mail->Host       = $config['smtp_host'];
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'abdurrahiym@live.com'; // SMTP username
-            $mail->Password   = 'Esmanurum1'; // SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port       = 587;
+            $mail->Username   = $config['smtp_username'];
+            $mail->Password   = $config['smtp_password'];
+            $mail->SMTPSecure = $config['smtp_secure'];
+            $mail->Port       = $config['smtp_port'];
 
-            //Recipients
-            $mail->setFrom('abdurrahiym@live.com', 'Verification Service'); // Sender's email and name
+            // Recipients
+            $mail->setFrom($config['smtp_username'], 'Verification Service'); // Sender's email and name
             $mail->addAddress($email); // Recipient's email (the logged-in user)
 
             // Content
@@ -54,4 +54,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
