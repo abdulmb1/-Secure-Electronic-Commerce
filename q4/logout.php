@@ -4,6 +4,6 @@ session_unset();
 session_destroy();
 
 // Redirect to login page
-header("Location: login3.php");
+header("Location: login4.php");
 exit();
 ?>
