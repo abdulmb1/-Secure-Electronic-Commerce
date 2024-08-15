@@ -1,4 +1,4 @@
-# SEC-A1
+# Secure Electronic Commerce - Assignment 1
 ## Overview
 
 This document provides an overview of the E-Commerce application implemented to protect against spam and unauthorised access. The application is secured using Google reCAPTCHA (both v2 and v3) to prevent fake user account creation and incorporates both email-based and Google’s 2-step verification multi-factor authentication (MFA) to protect user accounts.
