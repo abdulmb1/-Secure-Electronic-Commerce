@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         button:hover {
-            background-color: #218838;
+            opacity: 0.9;
         }
 
         .info-text {
