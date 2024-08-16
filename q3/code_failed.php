@@ -8,8 +8,8 @@
 <body>
     <div class="success-container">
         <h1>Invaid Code!</h1>
-        <p>Please try again.</p>
-        <button id ="backButton" onclick="window.location.href='enter_code.php';">Go Back to Two Factor Authentication</button>
+        <p>You have entered the incorrect Verficiation Code Please try again.</p>
+        <button id ="backButton" onclick="window.location.href='enter_code.php';">Go Back to 2FA</button>
     </div>
 </body>
 </html>
