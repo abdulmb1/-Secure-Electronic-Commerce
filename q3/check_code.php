@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: successCode.php");
         exit(); // Ensure the script stops executing after the redirect
     } else {
-        echo "Login Failed!";
+        header("Location: code_failed.php");
     }
 }
 ?>
